@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% if error %}
+{{ error }}
+<br>
+<br>
+
+{% endif %}
+
+<div class="box">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <h1 style="font-family:lobster;">Sign Up !!</h1><hr>
+            <form method="POST" name="{% url 'signup' %}">
+                {% csrf_token %}
+                <h5>USERNAME<input type="text" name="username" class="form-control"></h5>
+                <h5>PASSWORD<input type="password" name="password1"  class="form-control"></h5>
+                <h5>CONFIRM PASSWORD<input type="password" name="password2" class="form-control">
+                
+                <div class="text-center mt-2">
+                    <button type="submit" class=" btn btn-block btn-danger">SIGN UP</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

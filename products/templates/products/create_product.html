@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+    
+{{ error }}
+<br>
+<br>
+
+{% endif %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 form-group">
+            <h1 style="font-family:lobster;">Add Products</h1><hr>
+            <form method="POST" name="{% url 'create_product' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h5>TITLE<input type="text" name="title" class="form-control"></h5>
+                <h5>BODY<textarea name="body" class="form-control" rows=4></textarea></h5>
+                <h5>URL<input type="text" name="url" class=" form-control">
+                <h5>ICON<input type="file" name="icon">
+                <h5>IMAGE<input type="file" name="image">
+
+                <div class="text-center mt-2">
+                    <button type="submit" class=" btn btn-block btn-danger">ADD PRODUCT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

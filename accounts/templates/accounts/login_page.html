@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if error %}
+{{ error }}
+<br>
+<br>
+
+{% endif %}
+
+<div class="box">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <h1 style="font-family:lobster;">Log In !!</h1><hr>
+            <form method="POST" name="{% url 'login' %}">
+                {% csrf_token %}
+                <h5>USERNAME<input type="text" name="username" class="form-control"></h5>
+                <h5>PASSWORD<input type="password" name="password"  class="form-control"></h5>
+                
+                <div class="text-center mt-2">
+                    <button type="submit" class=" btn btn-block btn-danger">LOG IN</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
